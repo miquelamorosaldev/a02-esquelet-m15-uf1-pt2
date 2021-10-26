@@ -7,11 +7,11 @@ import poo2users.User;
  *
  * @author alumne
  */
-public class UserManagerDAOMemorySHA implements UserManagerDAOInterface{
+public class UserManagerDAOMemoryOld implements UserManagerDAOInterface{
 
     private ArrayList<User> users = new ArrayList<>();
     
-    public UserManagerDAOMemorySHA() {
+    public UserManagerDAOMemoryOld() {
         User pr1 = new User("pga","123456","ADMIN");
         users.add(pr1);
         users.add(new User("mba","123456","ADMIN"));
@@ -40,5 +40,6 @@ public class UserManagerDAOMemorySHA implements UserManagerDAOInterface{
     public boolean logout(String username) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+    
     
 }

@@ -28,14 +28,14 @@ public class UserMemoryDAOTest extends TestCase {
     public void testLoginExistingUser() {
         // Esperamos que el login sea true.
         boolean resEsperat = true;
-        boolean resReal = userDAO.login("pga","123456");
+        boolean resReal = userDAO.login("pga","admin");
         assertEquals(resEsperat, resReal);
     }
     
     public void testLoginNonExistingUser() {
         // Esperamos que el login sea false.
         boolean resEsperat = false;
-        boolean resReal = userDAO.login("new","1234");
+        boolean resReal = userDAO.login("new","admin");
         assertEquals(resEsperat, resReal);
     }
 }

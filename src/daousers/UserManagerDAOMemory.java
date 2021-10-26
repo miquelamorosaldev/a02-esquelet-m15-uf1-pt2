@@ -1,6 +1,15 @@
 package daousers;
 
+import EncryptDecryptSHA1.EncryptAndDecryptSHA1;
+import java.io.UnsupportedEncodingException;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.crypto.BadPaddingException;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
 import poo2users.User;
 
 /**
@@ -11,13 +20,15 @@ public class UserManagerDAOMemory implements UserManagerDAOInterface{
 
     private ArrayList<User> users = new ArrayList<>();
     
+    private final String CLAVE_PRIVADA = "claveprivada";
+    
     public UserManagerDAOMemory() {
-        User pr1 = new User("pga","123456","ADMIN");
+        User pr1 = new User("pga","zqXUGxblz37qSchfgfdshg==","ADMIN");
         users.add(pr1);
-        users.add(new User("mba","123456","ADMIN"));
-        users.add(new User("rse","123456","ADMIN"));
-        users.add(new User("vra","123456","ADMIN"));
-        User pr5 = new User("mam","123456","ADMIN");
+        users.add(new User("mba","zqXUGxblz37qSchfgfdshg==","ADMIN"));
+        users.add(new User("rse","zqXUGxblz37qSchfgfdshg==","ADMIN"));
+        users.add(new User("vra","zqXUGxblz37qSchfgfdshg==","ADMIN"));
+        User pr5 = new User("mam","zqXUGxblz37qSchfgfdshg==","ADMIN");
         users.add(pr5);
     }
     
@@ -27,9 +38,34 @@ public class UserManagerDAOMemory implements UserManagerDAOInterface{
         // users.contains()
         boolean exists = false;
         int listSize = users.size();
+        // Let's encrypt the user password.
+        EncryptAndDecryptSHA1 ead = new EncryptAndDecryptSHA1();
+        String encryptedUserPassword = "";
+        String encryptedDatabasePassword = "";
+        try {
+            encryptedUserPassword = ead.encrypt
+                    (password, CLAVE_PRIVADA);
+        } catch (NoSuchAlgorithmException ex) {
+            Logger.getLogger(UserManagerDAOMemory.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (NoSuchPaddingException ex) {
+            Logger.getLogger(UserManagerDAOMemory.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InvalidKeyException ex) {
+            Logger.getLogger(UserManagerDAOMemory.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (UnsupportedEncodingException ex) {
+            Logger.getLogger(UserManagerDAOMemory.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IllegalBlockSizeException ex) {
+            Logger.getLogger(UserManagerDAOMemory.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (BadPaddingException ex) {
+            Logger.getLogger(UserManagerDAOMemory.class.getName()).log(Level.SEVERE, null, ex);
+        }
         for (int i = 0; i < listSize && !exists; i++) {
+            
+            // Now, we get the encrypted password from the database.
+            encryptedDatabasePassword = users.get(i).getPassword();
+            // If user password and database password match, the user
+            // is logged succesfully.
             if(users.get(i).getUsername().equals(username) 
-                    && users.get(i).getPassword().equals(password) ) {
+                    && encryptedUserPassword.equals(encryptedDatabasePassword) ) {
                 exists = true;
             }
         }

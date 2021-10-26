@@ -2,17 +2,17 @@
 	"users": [
 		{
 			"username": "pga",
-			"password": "1234",
-			"role": "1234"
+			"password": "zqXUGxblz37qSchfgfdshg==",
+			"role": "user"
 		},
 		{
 			"username": "admin",
-			"password": "admin",
+			"password": "zqXUGxblz37qSchfgfdshg==",
 			"role": "admin"
 		},
 		{
 			"username": "vra",
-			"password": "1234",
+			"password": "zqXUGxblz37qSchfgfdshg==",
 			"role": "user"
 		}
 	]

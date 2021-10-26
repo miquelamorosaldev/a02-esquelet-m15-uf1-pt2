@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package encriptdemo;
+package EncryptDecryptSHA1;
 
+import encriptdemo.*;
 import java.math.BigInteger;
 import java.security.MessageDigest;
 
@@ -12,7 +13,8 @@ import java.security.MessageDigest;
  *
  * @author alumne
  */
-public class PasswordDigestExample {
+public class PasswordDigestExampleMiquel {
+    
      public static void main(String[] args) {
 
         String value = "admin";
