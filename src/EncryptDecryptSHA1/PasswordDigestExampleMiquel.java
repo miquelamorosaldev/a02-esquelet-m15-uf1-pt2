@@ -5,7 +5,6 @@
  */
 package EncryptDecryptSHA1;
 
-import encriptdemo.*;
 import java.math.BigInteger;
 import java.security.MessageDigest;
 
