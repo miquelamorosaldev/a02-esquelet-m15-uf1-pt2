@@ -8,8 +8,9 @@ package daousers;
 import adnmanagers.ADN_Manager;
 
 /**
- *
- * @author alumne
+ * Aquest main per a fer tests només cal usar-lo si 
+ * no us funciona JUNIT4.
+ * @author mamoros
  */
 public class DemoUsersDAO {
     

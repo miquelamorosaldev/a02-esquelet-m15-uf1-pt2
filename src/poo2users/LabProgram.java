@@ -49,7 +49,7 @@ public class LabProgram {
         if(loginOK) {
             System.out.println("Login correct. Welcome!");
         // 2a. If the username and the password are correct.
-        // Check if the user is admin or not.
+        // Program ADNManager starts.
         
         // 2b. If the username and the password are not in system, exit.
         } else {
