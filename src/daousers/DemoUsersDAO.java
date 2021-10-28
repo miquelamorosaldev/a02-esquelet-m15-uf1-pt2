@@ -5,8 +5,7 @@
  */
 package daousers;
 
-import poo2users.*;
-import java.util.ArrayList;
+import adnmanagers.ADN_Manager;
 
 /**
  *
@@ -33,6 +32,9 @@ public class DemoUsersDAO {
         boolean loginMam = usersDAO.login("mam","1234errt");
         System.out.println(loginMam?"SÍ":"NO");
         
+        ADN_Manager adnManager = new ADN_Manager();
+        System.out.println(adnManager.validarADN("AGAT"));
+        System.out.println(adnManager.validarADN("agax"));
     }
     
 }

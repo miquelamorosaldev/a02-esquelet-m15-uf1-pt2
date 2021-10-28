@@ -1,5 +1,6 @@
 package daousers;
 
+import adnmanagers.ADN_Manager;
 import junit.framework.TestCase;
 
 /**
@@ -9,6 +10,7 @@ import junit.framework.TestCase;
 public class UserMemoryDAOTest extends TestCase {
     
     UserManagerDAOInterface userDAO;
+    ADN_Manager adnManager;
     
     public UserMemoryDAOTest(String testName) {
         super(testName);
@@ -17,6 +19,7 @@ public class UserMemoryDAOTest extends TestCase {
     @Override
     protected void setUp() throws Exception {
         userDAO = new UserManagerDAOMemory();
+        adnManager  = new ADN_Manager();
     }
     
     @Override
@@ -38,4 +41,5 @@ public class UserMemoryDAOTest extends TestCase {
         boolean resReal = userDAO.login("new","admin");
         assertEquals(resEsperat, resReal);
     }
+    
 }

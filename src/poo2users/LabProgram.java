@@ -1,5 +1,7 @@
 package poo2users;
 
+import daousers.UserManagerDAOInterface;
+import daousers.UserManagerDAOMemory;
 import java.util.Scanner;
 
 /**
@@ -20,8 +22,10 @@ public class LabProgram {
 
     public static void main(String[] args) {
         
-        UserList labUsers = new UserList();
-    
+        // UserList labUsers = new UserList();
+         UserManagerDAOInterface usersDAO = new 
+                UserManagerDAOMemory();
+         
         // 1. Read username and the password from the console.
         System.out.println("Enter username ");    
         String username = sc.nextLine();
@@ -29,7 +33,7 @@ public class LabProgram {
         String password = sc.nextLine();
         
         // 2. Try to login.
-        boolean loginOK = labUsers.loginUser(username, password);
+        boolean loginOK = usersDAO.login(username, password);
         if(loginOK) {
             System.out.println("Login correct. Welcome!");
         // 2a. If the username and the password are correct.

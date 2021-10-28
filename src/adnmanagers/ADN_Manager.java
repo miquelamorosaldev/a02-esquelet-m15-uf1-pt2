@@ -12,7 +12,7 @@ public class ADN_Manager {
     private int basesG = 0;
     private int basesU_ARN = 0;
     
-    ADN_Manager() {
+    public ADN_Manager() {
         resetADN();
     }
     
@@ -29,6 +29,7 @@ public class ADN_Manager {
     
     public boolean validarADN(String cadenaADN) {
         resetADN();
+        cadenaADN=cadenaADN.toUpperCase();
         boolean cadenaADNValida = false;
         // Guardem les bases d'ADN de la seqüència.
         int index = 0;

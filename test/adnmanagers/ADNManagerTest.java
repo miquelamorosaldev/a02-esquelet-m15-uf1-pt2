@@ -34,13 +34,14 @@ public class ADNManagerTest extends TestCase {
         assertEquals(resEsperat, resReal);
     }
     
+    
     public void testCorrectADNLong() {
         // Esperamos que el resultado sea true con una cadena
         // de ADN válida y larga
-        boolean resEsperat = true;
-        boolean resReal = adnManager.validarADN(
-                "actgcaggattacctatggtaaaggttaacctcgtacgtgatgctagctagctagc");
-        assertEquals(resEsperat, resReal);
+        // Otra forma similar de hacer el test, en vez 
+        // del assertEquals
+        assertTrue(
+            adnManager.validarADN("actgcaggattacctatggtaaaggttaacctcgtacgtgatgctagctagctagc"));
     }
     
     public void testIncorrectADNLetters() {
@@ -54,8 +55,9 @@ public class ADNManagerTest extends TestCase {
     public void testIncorrectADNNumbers() {
         // Esperamos que el login sea false con una cadena de letras
         // y numeros sin mucho sentido.
-        boolean resEsperat = false;
-        boolean resReal = adnManager.validarADN("a32fgc45534xsalsda");
-        assertEquals(resEsperat, resReal);
+        // Otra forma similar de hacer el test, en vez 
+        // del assertEquals
+        assertFalse(
+           adnManager.validarADN("a32fgc45534xsalsda"));
     }   
 }
