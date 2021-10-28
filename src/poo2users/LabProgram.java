@@ -5,15 +5,27 @@ import daousers.UserManagerDAOMemory;
 import java.util.Scanner;
 
 /**
- *
- * Ens han demanat crear un programa mitjançant la consola de Java que gestionarà l’accés als usuaris d’un laboratori.
- * El programa demanarà per consola el nom d’usuari i la contrassenya (que tindrem guardats prèviament), si són correctes; s’accedirà a un menú on l’usuari registrat podrà:
- * Veure la seva informació d’usuari.
-	Només si és admin, podrà crear un nou usuari.
-	Fer logout (tancar la sessió)
-	Tancar el programa.
-Al fer logout, tornarem al punt inicial, on el programa demana les credencials de l’usuari.
-Si el nom d’usuari o contrassenya són incorrectes; es mostrarà un missatge d’error i es tancarà el programa.  
+ *Volem crear un programa per consola que llegeixi 
+ * la llista d’usuaris d’un sistema 
+ * (login i password) per fitxer (pot ser text pla, JSON o CSV) i 
+ * un cop l’usuari ha introduït les seves credencials correctament 
+ * podrà realitzar operacions sobre cadenes d’ADN.
+Es valorarà positivament que les credencials del fitxer estiguin encriptades. 
+* 
+Un cop l’usuari ha accedit al sistema, podrà realitzar les següents operacions en una cadena ADN o ARN:
+- Donar la volta a una cadena ADN. (retorn String) (*3)
+- Trobar la base més repetida. (retorn caràcter)
+- Trobar la base menys repetida. (retorn caràcter)
+- Fer recompte de bases i mostrar-lo. (1*)
+- Convertir un ADN a ARN (2*)
+- Convertir un ARN a ADN (2*)
+- Sortir.
+Segons l'opció escollida podrem visualitzar un o altre resultat, o bé, sortir de l'aplicació.
+
+Atenció! Si la cadena d’ADN no és vàlida (té almenys 1 
+* caràcter que no és vàlid), s’informarà a l’usuari.
+Recomanable usar un mètode apart per a fer aquesta validació.
+
  * @author alumne
  */
 public class LabProgram {
