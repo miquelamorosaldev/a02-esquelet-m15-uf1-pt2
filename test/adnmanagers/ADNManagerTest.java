@@ -28,7 +28,7 @@ public class ADNManagerTest extends TestCase {
     
     public void testCorrectADN() {
         // Esperamos que el resultado sea true con una cadena
-        // de ADN válida.
+        // de ADN vÃ¡lida.
         boolean resEsperat = true;
         boolean resReal = adnManager.validarADN("actgcaggattac");
         assertEquals(resEsperat, resReal);
@@ -37,7 +37,7 @@ public class ADNManagerTest extends TestCase {
     
     public void testCorrectADNLong() {
         // Esperamos que el resultado sea true con una cadena
-        // de ADN válida y larga
+        // de ADN vÃ¡lida y larga
         // Otra forma similar de hacer el test, en vez 
         // del assertEquals
         assertTrue(
@@ -60,4 +60,11 @@ public class ADNManagerTest extends TestCase {
         assertFalse(
            adnManager.validarADN("a32fgc45534xsalsda"));
     }   
+    
+    public void testConvertARN() {
+        String resARNesperat = "AGUAAGCUA";
+        String resARNFinal = adnManager.convertADNtoARN("AGTAAGCTA");
+        assertEquals(resARNesperat, resARNFinal);
+    }
+    
 }

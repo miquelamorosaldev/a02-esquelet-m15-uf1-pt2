@@ -29,8 +29,9 @@ public class ADN_Manager {
     
     public boolean validarADN(String cadenaADN) {
         resetADN();
+        // Passem la cadena a majúscules per evitar errors.
         cadenaADN=cadenaADN.toUpperCase();
-        boolean cadenaADNValida = false;
+        boolean cadenaADNValida = true;
         // Guardem les bases d'ADN de la seqüència.
         int index = 0;
         
@@ -58,7 +59,9 @@ public class ADN_Manager {
                     // Si el carácter no esta dentro del ADN.
                     break;
                 default:
-                    resultadoValidacionCadena(index);
+                    cadenaADNValida = false;
+                    // A JUnit no li agrada aquest mètode.
+                    // resultadoValidacionCadena(index);
                 }
             }
         return cadenaADNValida;
@@ -82,6 +85,8 @@ public class ADN_Manager {
         boolean cadenaARNValida = false;
         // Guardem les bases d'ADN de la seqüència.
         int index = 0;
+        // Passem la cadena a majúscules per evitar errors.
+        cadenaARN=cadenaARN.toUpperCase();
         
         // Sol1. Convertir la cadena en un array
         // de carácters.
@@ -107,13 +112,27 @@ public class ADN_Manager {
                     // Si el carácter no esta dentro del ADN.
                     break;
                 default:
-                    System.out.println("Error. Secuencia ARN no válida.");
-                    System.out.println("En la posición " +
-                            index + " hay un carácter que no es válido.");
-                    System.exit(0);
+                     cadenaARNValida = false;
+                    // A JUnit no li agrada aquest mètode.
+                    // resultadoValidacionCadena(index);
                 }
             }
         return cadenaARNValida;
+    }
+    
+    /**
+     * Funcio que agafa l'atribut ADN i el converteix amb una cadena ARN.
+     * @param cadenaADN, String cadena ADN.
+     * @return ARN, String cadena ARN.
+     */
+    public String convertADNtoARN(String cadenaADN) {
+        String cadenaARN = "";
+        /* Primerament validem l'ADN */
+        if (validarADN(cadenaADN)) {
+            // Té un rendiment relativament bo el mètode.
+            cadenaARN = cadenaADN.replaceAll("T","U");
+        }
+        return cadenaARN;
     }
     
     /**
