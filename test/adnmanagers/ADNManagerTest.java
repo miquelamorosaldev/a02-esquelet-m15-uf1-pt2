@@ -67,4 +67,21 @@ public class ADNManagerTest extends TestCase {
         assertEquals(resARNesperat, resARNFinal);
     }
     
+    public void testConvertNotValidARN() {
+        String resARNesperat = "";
+        String resARNFinal = adnManager.convertADNtoARN("AGXTAAGCTA");
+        assertEquals(resARNesperat, resARNFinal);
+    }
+    
+    public void testInvertARN() {
+        String expectedInvertedADN = "CTGA";
+        String programInvertedADN = adnManager.invertADN("AGTC");
+        assertEquals(expectedInvertedADN, programInvertedADN);
+    }
+    
+    public void testInvertPalindronARN() {
+        String expectedInvertedADN = "AGATAGA";
+        String programInvertedADN = adnManager.invertADN("AGATAGA");
+        assertEquals(expectedInvertedADN, programInvertedADN);
+    }
 }

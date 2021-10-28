@@ -141,11 +141,15 @@ public class ADN_Manager {
      * @return ADN invertit.
      */
     public String invertADN(String ADN) {
-        StringBuilder builder = new StringBuilder();
-        if(validarADN(ADN)) {
-            builder = new StringBuilder(ADN);
-        }
-        return builder.reverse().toString();
+        String  reversedADN = "";
+        StringBuilder input1 = new StringBuilder();
+ 
+        // append a string into StringBuilder input1
+        input1.append(ADN);
+ 
+        // reverse StringBuilder input1
+        input1.reverse();
+        return input1.toString();
     }
 
     /**
